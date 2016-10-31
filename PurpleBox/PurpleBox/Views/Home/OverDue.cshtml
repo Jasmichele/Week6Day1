@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "OverDue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OverDue</h2>
+
+<h3>@ViewBag.Message</h3>
+
+@{
+    MovieRentalEntities1 db = new MovieRentalEntities1();
+
+    var allMovies = from m in db.RentalRecords
+                    join o in db.Movies on m.MovieID equals o.MovieID
+                    join c in db.Customers on m.CustomerID equals c.CustomerID
+                    where m.DueDate < DateTime.Today
+                    select new
+                    {
+                        MovieName = o.MovieName,
+
+                        MovieDueDate = m.DueDate,
+
+                        MovieRenter = c.CustomerName
+                    };
+
+}
+
+
+
+@foreach (var movie in allMovies)
+{
+    @*<p>Movie Due: @movie.MovieName</p>*@
+
+}
+
+<table style="border: 2px solid Purple">
+    <tr>
+        <th style="border: 2px solid Purple">Movie Name</th>
+        <th style="border: 2px solid White">Due Date</th>
+        <th style="border: 2px solid White">Movie Renter</th>
+    </tr>
+    @foreach (var movie in allMovies)
+
+
+    {
+        <tr style="border: 2px solid Purple">
+            <td style="border: 2px solid Purple">@movie.MovieName</td>
+            <td style="border: 2px solid White">@string.Format("{0:M/d/yyyy}", movie.MovieDueDate)</td>
+            <td style="border: 2px solid White">@movie.MovieRenter</td>
+        </tr>
+
+    }
+</table>

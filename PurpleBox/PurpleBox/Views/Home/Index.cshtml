@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="center" >PURPLE BOX</h1>
+    <link rel="stylesheet" href="~/content/Site.css" />
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="color-lp">Rent A Movie</h2>
+        <p class="btn btn-default">@Html.ActionLink("Rent Movie>>", "Create", "RentalRecords")</p>
+    </div>
+    <div class="col-md-4">
+        <h2 class="color-lp">Return A Movie</h2>
+        <p class="btn btn-default">@Html.ActionLink("Renturn A Movie>>", "Index", "RentalRecords")</p>
+       
+    </div>
+    <div class="col-md-4">
+        <h2 class="color-dp">View All OverDue 
+             Movies</h2>
+        <p class="btn btn-default">@Html.ActionLink("OverDue Movies>>", "OverDue", "Home")</p>
+    </div>
+</div>

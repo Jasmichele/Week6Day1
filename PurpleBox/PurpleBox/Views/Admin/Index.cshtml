@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Admin</h2>
+
+<div class="row">
+    <div class="buthome">
+        <p class="btn btn-default">@Html.ActionLink("Add A New Genre", "Create", "Genres")</p>
+    </div>
+    <div class="buthome">
+        <p class="btn btn-default">@Html.ActionLink("Add A New Movie", "Create", "Movies")</p>
+    </div>
+    <div class="buthome">
+        <p class="btn btn-default">@Html.ActionLink("Remove", "Index", "Movies")</p>
+    </div>
+    <div class="buthome">
+        <p class="btn btn-default">@Html.ActionLink("Add A New Customer", "Create", "Customers")</p>
+    </div>
+    <div class="buthome">
+        <p class="btn btn-default">@Html.ActionLink("Remove A Customer", "Index", "Customers")</p>
+    </div>
+</div>
